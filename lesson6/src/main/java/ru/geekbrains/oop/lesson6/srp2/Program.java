@@ -9,9 +9,10 @@ public class Program {
      */
     public static void main(String[] args) {
         System.out.println("Укажите параметры заказа:");
-        Order order = new Order();
-        order.inputFromConsole();
-        order.saveToJson();
+        OrderInput orderIn = new OrderInput();
+        OrderPersistence orderP = new OrderPersistence();
+        Order order = new Order(orderIn.createOrderFromConsole());
+        orderP.saveOrderToJson(order);
     }
 
 }
